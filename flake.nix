@@ -22,8 +22,8 @@
         vm = mkSystem "vm" { };
         vm2 = mkSystem "vm" {
           users = [
-            (mkUser "nicolai" { profile = "personal"; })
-            (mkUser "nicolai" { profile = "ntnu"; })
+            (mkUser "nicolai")
+            (mkUser "nicolai-ntnu")
           ];
         };
       };

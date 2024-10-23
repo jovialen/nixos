@@ -1,12 +1,10 @@
 username:
-{ profile ? "."
-}:
 
 { inputs, ... }:
 
 let
-  nixUser = ../users/${username}/${profile}/nixos.nix;
-  homeUser = ../users/${username}/${profile}/home.nix;
+  nixUser = ../users/${username}/nixos.nix;
+  homeUser = ../users/${username}/home.nix;
 in
 {
   imports = [

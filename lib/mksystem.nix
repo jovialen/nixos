@@ -1,7 +1,7 @@
 { nixpkgs, inputs }:
 
 host:
-{ users ? [ (import ./mkuser.nix "nicolai" { }) ]
+{ users ? [ (import ./mkuser.nix "nicolai") ]
 }:
 
 let
