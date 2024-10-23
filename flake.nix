@@ -12,15 +12,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations = {
-      vm = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/vm/configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      };
-    };
-  };
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+    let mkSystem = import ./lib/mksystem.nix { inherit nixpkgs inputs; };
+    in { nixosConfigurations = { vm = mkSystem "virtualmachine" { }; }; };
 }
