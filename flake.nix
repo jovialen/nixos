@@ -12,7 +12,20 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
-    let mkSystem = import ./lib/mksystem.nix { inherit nixpkgs inputs; };
-    in { nixosConfigurations = { vm = mkSystem "virtualmachine" { }; }; };
+  outputs = { self, nixpkgs, ... }@inputs:
+    let
+      mkSystem = import ./lib/mksystem.nix { inherit nixpkgs inputs; };
+      mkUser = import ./lib/mkuser.nix;
+    in
+    {
+      nixosConfigurations = {
+        vm = mkSystem "vm" { };
+        vm2 = mkSystem "vm" {
+          users = [
+            (mkUser "nicolai" { profile = "personal"; })
+            (mkUser "nicolai" { profile = "ntnu"; })
+          ];
+        };
+      };
+    };
 }

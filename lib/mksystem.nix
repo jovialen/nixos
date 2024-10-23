@@ -1,9 +1,7 @@
 { nixpkgs, inputs }:
 
-name:
-{ host ? "vm"
-, users ? { nicolai = import ../users/nicolai/personal.nix; }
-, hardware ? { }
+host:
+{ users ? [ (import ./mkuser.nix "nicolai" { }) ]
 }:
 
 let
@@ -16,18 +14,8 @@ nixpkgs.lib.nixosSystem {
     { nixpkgs.config.allowUnfree = true; }
 
     hostConfig
-
     hardwareConfig
-    hardware
 
     inputs.home-manager.nixosModules.default
-    {
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        extraSpecialArgs = { inherit inputs; };
-        users = users;
-      };
-    }
-  ];
+  ] ++ users;
 }

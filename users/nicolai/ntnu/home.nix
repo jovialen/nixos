@@ -1,18 +1,21 @@
-{ config, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   # -------------------------------------------------------
   # |  User                                               |
   # -------------------------------------------------------
 
-  home.username = "ntnu";
-  home.homeDirectory = "/home/ntnu";
+  home.username = "nicolai-ntnu";
+  home.homeDirectory = "/home/nicolai-ntnu";
 
   # -------------------------------------------------------
   # |  Packages                                           |
   # -------------------------------------------------------
 
-  home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [
+    firefox
+    vscode
+  ];
 
   # -------------------------------------------------------
   # |  Dotfiles and configuration                         |

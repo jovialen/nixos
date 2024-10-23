@@ -1,12 +1,7 @@
 { pkgs, ... }:
 
 {
-  # -------------------------------------------------------
-  # |  Packages                                           |
-  # -------------------------------------------------------
-
   # Packages shared between all devices
-
   environment.systemPackages = with pkgs; [
     git
     wget
@@ -17,6 +12,9 @@
     nh
     neofetch
   ];
+
+  # Disable mutable users (force to match nixos config)
+  users.mutableUsers = false;
 
   # -------------------------------------------------------
   # |  Nix configuration                                  |
