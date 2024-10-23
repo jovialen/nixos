@@ -12,7 +12,7 @@
     wget
     vim
     neovim
-    nixfmt
+    nixpkgs-fmt
     nixd
     nh
     neofetch
