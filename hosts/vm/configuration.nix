@@ -12,8 +12,6 @@
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "vm";
-
   # Enable networking
   networking.networkmanager.enable = true;
 

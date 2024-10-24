@@ -1,7 +1,8 @@
 { nixpkgs, inputs }:
 
-host:
-{ users ? [ (import ./mkuser.nix "nicolai") ]
+name:
+{ host ? name
+, users ? [ (import ./mkuser.nix "nicolai") ]
 }:
 
 let
@@ -12,6 +13,8 @@ nixpkgs.lib.nixosSystem {
   specialArgs = { inherit inputs; };
   modules = [
     { nixpkgs.config.allowUnfree = true; }
+
+    { networking.hostName = name; }
 
     hostConfig
     hardwareConfig

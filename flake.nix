@@ -20,7 +20,8 @@
     {
       nixosConfigurations = {
         vm = mkSystem "vm" { };
-        vm2 = mkSystem "vm" {
+        vm2 = mkSystem "vm2" {
+          host = "vm";
           users = [
             (mkUser "nicolai")
             (mkUser "nicolai-ntnu")
