@@ -18,6 +18,10 @@
       mkUser = import ./lib/mkuser.nix;
     in
     {
+      # ---------------------------------------------------
+      # |  Systems                                        |
+      # ---------------------------------------------------
+
       nixosConfigurations = {
         vm = mkSystem "vm" { };
         vm2 = mkSystem "vm2" {
@@ -28,5 +32,12 @@
           ];
         };
       };
+
+      # ---------------------------------------------------
+      # |  Modules                                        |
+      # --------------------------------------------------- 
+
+      nixosModules.default = ./modules/nixos/default.nix;
+      homeManagerModules.default = ./modules/home-manager/default.nix;
     };
 }
