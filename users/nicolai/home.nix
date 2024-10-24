@@ -1,6 +1,10 @@
-{ lib, pkgs, ... }:
+{ lib, outputs, pkgs, ... }:
 
 {
+  imports = [
+    outputs.homeManagerModules.default
+  ];
+
   # -------------------------------------------------------
   # |  User                                               |
   # -------------------------------------------------------
@@ -8,11 +12,27 @@
   home.username = "nicolai";
   home.homeDirectory = "/home/nicolai";
 
+  jovial.git = {
+    enable = true;
+    name = "Nicolai Frigaard";
+    email = "nicolai.frigaard@gmail.com";
+  };
+
   # -------------------------------------------------------
   # |  Packages                                           |
   # -------------------------------------------------------
 
   home.packages = with pkgs; [
+    # Utilities
+    htop
+    fzf
+    fd
+    eza
+    tree
+    bitwarden-cli
+    gh
+
+    # Applications
     firefox
     vscode
   ];

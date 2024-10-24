@@ -6,5 +6,6 @@
     inputs.home-manager.nixosModules.default
   ] ++ [
     # Modules
+    ./git.nix
   ];
 }
