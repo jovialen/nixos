@@ -3,6 +3,8 @@
 {
   imports = [
     inputs.home-manager.nixosModules.default
+    
+    ./catppuccin.nix
   ];
 
   config = {

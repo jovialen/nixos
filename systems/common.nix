@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ outputs, pkgs, ... }:
 
 {
+  imports = [
+    outputs.nixosModules.default
+  ];
+
   config = {
     # Packages shared between all devices
     environment.systemPackages = with pkgs; [
@@ -13,6 +17,9 @@
 
     # Disable mutable users (force to match nixos config)
     users.mutableUsers = false;
+
+    # Modules
+    jovial.nixos.catppuccin.enable = true;
 
     # -----------------------------------------------------
     # |  Nix configuration                                |
