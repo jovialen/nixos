@@ -2,8 +2,7 @@
 
 {
   imports = [
-    ../shared.nix
-    ./hardware-configuration.nix
+    ../common.nix
   ];
 
   # Bootloader.

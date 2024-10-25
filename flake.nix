@@ -13,24 +13,17 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
-    let
-      mkSystem = import ./lib/mksystem.nix { inherit nixpkgs inputs; };
-      mkUser = import ./lib/mkuser.nix;
-    in
-    {
+  let
+    mkSystem = import ./lib/mksystem.nix { inherit nixpkgs inputs; };
+  in
+  {
       # ---------------------------------------------------
       # |  Systems                                        |
       # ---------------------------------------------------
 
       nixosConfigurations = {
-        vm = mkSystem "vm" { };
-        vm2 = mkSystem "vm2" {
-          host = "vm";
-          users = [
-            (mkUser "nicolai")
-            (mkUser "nicolai-ntnu")
-          ];
-        };
+        vm1 = mkSystem "vm1" "vm";
+        vm2 = mkSystem "vm2" "vm";
       };
 
       # ---------------------------------------------------
@@ -39,5 +32,5 @@
 
       nixosModules.default = ./modules/nixos;
       homeManagerModules.default = ./modules/home-manager;
-    };
+  };
 }

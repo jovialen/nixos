@@ -1,38 +1,24 @@
-{ outputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [ outputs.homeManagerModules.default ];
-
-  # -------------------------------------------------------
-  # |  User                                               |
-  # -------------------------------------------------------
-
-  home.username = "nicolai-ntnu";
-  home.homeDirectory = "/home/nicolai-ntnu";
-
-  jovial.home.git = {
-    enable = true;
-    name = "Nicolai Frigaard";
-    email = "nicolfri@stud.ntnu.no";
-    defaultBranch = "master";
-  };
-
   # -------------------------------------------------------
   # |  Packages                                           |
   # -------------------------------------------------------
 
   home.packages = with pkgs; [
+    # Utilities
+    htop
+    fzf
+    fd
+    eza
+    tree
+    bitwarden-cli
+    gh
+
+    # Applications
     firefox
     vscode
   ];
-
-  # -------------------------------------------------------
-  # |  Dotfiles and configuration                         |
-  # -------------------------------------------------------
-
-  home.file = { };
-
-  home.sessionVariables = { };
 
   # -------------------------------------------------------
   # |  Home manager                                       |

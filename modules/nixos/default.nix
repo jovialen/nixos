@@ -1,28 +1,19 @@
 { inputs, ... }:
 
 {
-  # -------------------------------------------------------
-  # |  Modules                                            |
-  # -------------------------------------------------------
-
   imports = [
-    inputs.home-manager.nixosModules.home-manager
-
-    ./nix-helper.nix
+    inputs.home-manager.nixosModules.default
   ];
 
-  # -------------------------------------------------------
-  # |  Configuration                                      |
-  # -------------------------------------------------------
-
   config = {
-    # Allow unfree software
+    # Configure nix
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nixpkgs.config.allowUnfree = true;
 
-    # Patch ld
-    programs.nix-ld.enable = true;
-
-    # Enable flakes
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    # Configure home manager
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+    };
   };
 }

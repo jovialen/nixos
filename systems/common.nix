@@ -8,16 +8,11 @@
       wget
       vim
       neovim
-      nixpkgs-fmt
-      nixd
       neofetch
     ];
 
     # Disable mutable users (force to match nixos config)
     users.mutableUsers = false;
-
-    # Default modules
-    jovial.nix.nh.enable = true;
 
     # -----------------------------------------------------
     # |  Nix configuration                                |

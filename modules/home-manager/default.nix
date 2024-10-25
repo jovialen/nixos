@@ -1,8 +1,5 @@
 { ... }:
 
 {
-  imports = [
-    # Modules
-    ./git.nix
-  ];
+  
 }

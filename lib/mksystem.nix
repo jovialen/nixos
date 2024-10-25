@@ -4,22 +4,22 @@ let
 in
 
 name:
-{ host ? name
-, users ? [ (import ./mkuser.nix "nicolai") ]
-}:
+system:
 
 let
-  hostConfig = ../hosts/${host}/configuration.nix;
-  hardwareConfig = ../hosts/${host}/hardware-configuration.nix;
+  systemConfiguration = ../systems/${system}/configuration.nix;
+  hardwareConfiguration = ../systems/${system}/hardware-configuration.nix;
+  systemUserConfigurations = ../systems/${system}/users.nix;
 in
 nixpkgs.lib.nixosSystem {
   specialArgs = { inherit inputs outputs; };
   modules = [
     { networking.hostName = name; }
 
-    hostConfig
-    hardwareConfig
+    systemConfiguration
+    hardwareConfiguration
+    systemUserConfigurations
 
     outputs.nixosModules.default
-  ] ++ users;
+  ];
 }
