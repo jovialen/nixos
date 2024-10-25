@@ -17,7 +17,7 @@
     users.mutableUsers = false;
 
     # Default modules
-    jovial.nh.enable = true;
+    jovial.nix.nh.enable = true;
 
     # -----------------------------------------------------
     # |  Nix configuration                                |

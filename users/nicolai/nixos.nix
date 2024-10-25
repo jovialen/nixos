@@ -1,10 +1,6 @@
-{ pkgs, outputs, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [
-    outputs.nixosModules.default
-  ];
-
   users.users.nicolai = {
     isNormalUser = true;
     description = "Nicolai";

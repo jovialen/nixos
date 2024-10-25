@@ -1,9 +1,7 @@
-{ lib, outputs, pkgs, ... }:
+{ outputs, pkgs, ... }:
 
 {
-  imports = [
-    outputs.homeManagerModules.default
-  ];
+  imports = [ outputs.homeManagerModules.default ];
 
   # -------------------------------------------------------
   # |  User                                               |
@@ -12,7 +10,7 @@
   home.username = "nicolai-ntnu";
   home.homeDirectory = "/home/nicolai-ntnu";
 
-  jovial.git = {
+  jovial.home.git = {
     enable = true;
     name = "Nicolai Frigaard";
     email = "nicolfri@stud.ntnu.no";

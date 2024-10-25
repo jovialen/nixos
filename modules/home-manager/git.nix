@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.jovial.git;
+  cfg = config.jovial.home.git;
 in
 {
-  options.jovial.git = {
+  options.jovial.home.git = {
     enable = lib.mkEnableOption "enable git module";
     name = lib.mkOption {
       description = "Name to sign the git commits with";

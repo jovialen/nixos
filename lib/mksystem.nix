@@ -1,4 +1,7 @@
 { nixpkgs, inputs }:
+let
+  outputs = inputs.self.outputs;
+in
 
 name:
 { host ? name
@@ -8,10 +11,9 @@ name:
 let
   hostConfig = ../hosts/${host}/configuration.nix;
   hardwareConfig = ../hosts/${host}/hardware-configuration.nix;
-  outputs = inputs.self.outputs;
 in
 nixpkgs.lib.nixosSystem {
-  specialArgs = { inherit inputs; };
+  specialArgs = { inherit inputs outputs; };
   modules = [
     { networking.hostName = name; }
 
@@ -19,6 +21,5 @@ nixpkgs.lib.nixosSystem {
     hardwareConfig
 
     outputs.nixosModules.default
-    outputs.homeManagerModules.default
   ] ++ users;
 }

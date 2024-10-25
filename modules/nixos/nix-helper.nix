@@ -1,10 +1,10 @@
 { lib, config, ... }:
 
 let
-  cfg = config.jovial.nh;
+  cfg = config.jovial.nix.nh;
 in
 {
-  options.jovial.nh = {
+  options.jovial.nix.nh = {
     enable = lib.mkEnableOption "enable nix-helper module";
     flake = lib.mkOption {
       default = "/etc/nixos";

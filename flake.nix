@@ -37,7 +37,7 @@
       # |  Modules                                        |
       # --------------------------------------------------- 
 
-      nixosModules.default = ./modules/nixos/default.nix;
-      homeManagerModules.default = ./modules/home-manager/default.nix;
+      nixosModules.default = ./modules/nixos;
+      homeManagerModules.default = ./modules/home-manager;
     };
 }
