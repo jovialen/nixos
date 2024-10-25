@@ -19,6 +19,7 @@
     users.mutableUsers = false;
 
     # Modules
+    jovial.nixos.nh.enable = true;
     jovial.nixos.catppuccin.enable = true;
 
     # -----------------------------------------------------
