@@ -8,11 +8,13 @@ in
     enable = lib.mkEnableOption "enable catppuccin styling module";
     flavor = lib.mkOption {
       description = "Catppuccin theme flavor";
+      type = lib.types.str;
       default = "mocha";
     };
     accent = lib.mkOption {
       description = "What catppucin accent to use";
-      default = "rosewater";
+      type = lib.types.str;
+      default = "mauve";
     };
   };
 
@@ -20,11 +22,9 @@ in
     inputs.catppuccin.nixosModules.catppuccin
   ];
 
-  config = lib.mkIf cfg.enable {
-    catppuccin = {
-      enable = true;
-      flavor = cfg.flavor;
-      accent = cfg.accent;
-    };
+  config.catppuccin = lib.mkIf cfg.enable {
+    enable = true;
+    flavor = cfg.flavor;
+    accent = cfg.accent;
   };
 }
