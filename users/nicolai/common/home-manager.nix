@@ -12,6 +12,9 @@
   jovial.git.enable = true;
   jovial.git.name = "Nicolai Frigaard";
 
+  jovial.vscode.enable = true;
+  jovial.vscode.autosave = true;
+
   # -------------------------------------------------------
   # |  Packages                                           |
   # -------------------------------------------------------
@@ -28,7 +31,6 @@
 
     # Applications
     firefox
-    vscode
   ];
 
   # -------------------------------------------------------

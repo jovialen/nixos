@@ -11,8 +11,8 @@ in
 
   config.catppuccin = lib.mkIf cfg.enable {
     enable = true;
-    flavor = cfg.flavor;
-    accent = cfg.accent;
+    flavor = lib.strings.toLower cfg.flavor;
+    accent = lib.strings.toLower cfg.accent;
 
     pointerCursor = {
       enable = true;

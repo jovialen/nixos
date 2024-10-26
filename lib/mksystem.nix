@@ -16,6 +16,7 @@ nixpkgs.lib.nixosSystem {
   specialArgs = { inherit inputs outputs; };
   modules = [
     { networking.hostName = name; }
+    ../systems/common.nix
 
     systemConfiguration
     hardwareConfiguration

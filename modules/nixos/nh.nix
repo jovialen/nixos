@@ -8,7 +8,7 @@ in
     enable = lib.mkEnableOption "enable nix-helper module";
     flake = lib.mkOption {
       description = "absolute path to flake";
-      default = ./../..;
+      default = "/etc/nixos";
     };
   };
 

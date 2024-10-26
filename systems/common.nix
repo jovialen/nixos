@@ -8,6 +8,11 @@
   config = {
     # Packages shared between all devices
     environment.systemPackages = with pkgs; [
+      # Nix
+      nixd
+      nixpkgs-fmt
+
+      # Console utilities
       git
       wget
       vim

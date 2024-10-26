@@ -9,12 +9,12 @@ in
     flavor = lib.mkOption {
       description = "Catppuccin theme flavor";
       type = lib.types.str;
-      default = "mocha";
+      default = "Mocha";
     };
     accent = lib.mkOption {
       description = "What catppucin accent to use";
       type = lib.types.str;
-      default = "mauve";
+      default = "Mauve";
     };
   };
 
@@ -24,7 +24,7 @@ in
 
   config.catppuccin = lib.mkIf cfg.enable {
     enable = true;
-    flavor = cfg.flavor;
-    accent = cfg.accent;
+    flavor = lib.strings.toLower cfg.flavor;
+    accent = lib.strings.toLower cfg.accent;
   };
 }
