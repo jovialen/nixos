@@ -6,14 +6,25 @@ in
 {
   options.jovial.nixos.catppuccin = {
     enable = lib.mkEnableOption "enable catppuccin styling module";
+    flavor = lib.mkOption {
+      description = "Catppuccin theme flavor";
+      default = "mocha";
+    };
+    accent = lib.mkOption {
+      description = "What catppucin accent to use";
+      default = "rosewater";
+    };
   };
 
   imports = [
     inputs.catppuccin.nixosModules.catppuccin
   ];
 
-  config.catppuccin = lib.mkIf cfg.enable {
-    enable = true;
-    flavor = "mocha";
+  config = lib.mkIf cfg.enable {
+    catppuccin = {
+      enable = true;
+      flavor = cfg.flavor;
+      accent = cfg.accent;
+    };
   };
 }

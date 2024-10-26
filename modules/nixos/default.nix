@@ -1,9 +1,9 @@
-{ inputs, ... }:
+{ config, inputs, outputs, ... }:
 
 {
   imports = [
     inputs.home-manager.nixosModules.default
-    
+
     ./catppuccin.nix
     ./nh.nix
   ];
@@ -17,6 +17,7 @@
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
+      extraSpecialArgs = { inherit inputs outputs; nixConfig = config; };
     };
   };
 }
