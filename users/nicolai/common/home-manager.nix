@@ -27,6 +27,9 @@
     ns = "nix-shell";
     cd = "z";
   };
+  jovial.tmux.enable = true;
+  jovial.tmux.plugins = [
+  ];
 
   # -------------------------------------------------------
   # |  Packages                                           |
