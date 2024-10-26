@@ -8,24 +8,36 @@
   config = {
     # Packages shared between all devices
     environment.systemPackages = with pkgs; [
+      # General utilities
+      wget
+
       # Nix
       nixd
       nixpkgs-fmt
 
-      # Console utilities
+      # Git
       git
-      wget
+
+      # Editors
       vim
       neovim
+
+      # System information
       neofetch
+      htop
+      btop
+
+      # Navigation
+      yazi
     ];
 
     # Disable mutable users (force to match nixos config)
     users.mutableUsers = false;
 
-    # Modules
-    jovial.nh.enable = true;
-    jovial.catppuccin.enable = true;
+    # Default modules
+    jovial.nh.enable = true; # Nix helper
+    jovial.catppuccin.enable = true; # Catppuccin theme
+    jovial.plymouth.enable = true; # Silent (and pretty) boot
 
     # -----------------------------------------------------
     # |  Nix configuration                                |

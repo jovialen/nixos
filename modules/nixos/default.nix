@@ -6,6 +6,7 @@
   ] ++ [
     ./catppuccin.nix
     ./nh.nix
+    ./plymouth.nix
   ];
 
   config = {
