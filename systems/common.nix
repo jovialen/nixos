@@ -10,6 +10,10 @@
     environment.systemPackages = with pkgs; [
       # General utilities
       wget
+      fd
+      fzf
+      eza
+      tree
 
       # Nix
       nixd

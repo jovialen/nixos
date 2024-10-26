@@ -5,7 +5,7 @@ let
   themeEnabled = nixConfig.jovial.catppuccin.enable;
   themeFlavor = nixConfig.jovial.catppuccin.flavor;
 
-  themeExtensions = if themeEnabled then with pkgs.vscode-extensions.catppuccin; [ catppuccin-vsc catppuccin-vsc-icons ] else [];
+  themeExtensions = if themeEnabled then with pkgs.vscode-extensions.catppuccin; [ catppuccin-vsc catppuccin-vsc-icons ] else [ ];
 in
 {
   options.jovial.vscode = {

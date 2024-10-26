@@ -18,6 +18,10 @@
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
+      backupFileExtension = "backup";
+      sharedModules = [
+        outputs.homeManagerModules.default
+      ];
       extraSpecialArgs = { inherit inputs outputs; nixConfig = config; };
     };
   };

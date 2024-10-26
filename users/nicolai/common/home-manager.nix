@@ -1,10 +1,6 @@
 { pkgs, outputs, ... }:
 
 {
-  imports = [
-    outputs.homeManagerModules.default
-  ];
-
   # -------------------------------------------------------
   # |  Modules                                            |
   # -------------------------------------------------------
@@ -15,17 +11,29 @@
   jovial.vscode.enable = true;
   jovial.vscode.autosave = true;
 
+  jovial.alacritty.enable = true;
+  jovial.fish.enable = true;
+  jovial.fish.plugins = [
+    "z"
+    "plugin-git"
+    "puffer"
+    "done"
+    "colored-man-pages"
+    "fish-you-should-use"
+    "autopair"
+    "tide"
+  ];
+  jovial.shellAliases = {
+    ns = "nix-shell";
+    cd = "z";
+  };
+
   # -------------------------------------------------------
   # |  Packages                                           |
   # -------------------------------------------------------
 
   home.packages = with pkgs; [
     # Utilities
-    htop
-    fzf
-    fd
-    eza
-    tree
     bitwarden-cli
     gh
 
