@@ -1,10 +1,10 @@
 { config, inputs, lib, ... }:
 
 let
-  cfg = config.jovial.nixos.catppuccin;
+  cfg = config.jovial.catppuccin;
 in
 {
-  options.jovial.nixos.catppuccin = {
+  options.jovial.catppuccin = {
     enable = lib.mkEnableOption "enable catppuccin styling module";
     flavor = lib.mkOption {
       description = "Catppuccin theme flavor";

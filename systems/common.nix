@@ -19,8 +19,8 @@
     users.mutableUsers = false;
 
     # Modules
-    jovial.nixos.nh.enable = true;
-    jovial.nixos.catppuccin.enable = true;
+    jovial.nh.enable = true;
+    jovial.catppuccin.enable = true;
 
     # -----------------------------------------------------
     # |  Nix configuration                                |
