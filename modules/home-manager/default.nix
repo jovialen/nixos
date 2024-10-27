@@ -8,6 +8,7 @@
 
     ./alacritty.nix
     ./catppuccin.nix
+    ./firefox.nix
     ./fish.nix
     ./git.nix
     ./tmux.nix

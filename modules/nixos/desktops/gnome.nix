@@ -2,7 +2,6 @@
 
 let
   cfg = config.jovial.gnome;
-  catppuccinEnabled = config.jovial.catppuccin.enable;
 
   basePackages = with pkgs; [
     baobab # Disk analyser
@@ -119,12 +118,6 @@ in
     ])
     ++ cfg.packages
     ++ (map mkExtension defaultExtensions)
-    ++ (map mkExtension cfg.extensions)
-    ++ (lib.optionals catppuccinEnabled (with pkgs; [
-      # Not actually catppuccin, but goes well with it.
-      whitesur-cursors
-      whitesur-gtk-theme
-      whitesur-icon-theme
-    ]));
+    ++ (map mkExtension cfg.extensions);
   };
 }

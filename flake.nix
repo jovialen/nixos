@@ -16,6 +16,12 @@
 
     # Styling with Catppuccin
     catppuccin.url = "github:catppuccin/nix";
+
+    # Firefox addons
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

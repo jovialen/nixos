@@ -5,6 +5,29 @@
   # |  Modules                                            |
   # -------------------------------------------------------
 
+  # Browser
+  jovial.firefox.enable = true;
+  jovial.firefox.extensions = [
+    # Privacy
+    "privacy-badger"
+    "ghostery"
+    "decentraleyes"
+
+    # No ads please
+    "ublock-origin"
+    "sponsorblock"
+
+    # Avoiding doom-scrolling
+    "youtube-shorts-block"
+
+    # Password manager
+    "bitwarden"
+
+    # Theming
+    "firefox-color"
+    "stylus"
+  ];
+
   # Development
   jovial.git.enable = true;
   jovial.git.name = "Nicolai Frigaard";
@@ -52,9 +75,6 @@
     # Utilities
     bitwarden-cli
     gh
-
-    # Applications
-    firefox
   ];
 
   # -------------------------------------------------------
