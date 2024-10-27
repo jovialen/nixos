@@ -14,7 +14,6 @@
   jovial.alacritty.enable = true;
   jovial.fish.enable = true;
   jovial.fish.plugins = [
-    "z"
     "plugin-git"
     "puffer"
     "done"
@@ -22,14 +21,20 @@
     "fish-you-should-use"
     "autopair"
     "tide"
+    "bass"
   ];
   jovial.shellAliases = {
-    ns = "nix-shell";
-    cd = "z";
+    nsh = "nix-shell";
+    nos = "nh os switch -a";
   };
   jovial.tmux.enable = true;
   jovial.tmux.plugins = [
   ];
+
+  programs.zoxide.enable = true;
+  programs.zoxide.options = [ "--cmd cd" ];
+
+  gtk.enable = true;
 
   # -------------------------------------------------------
   # |  Packages                                           |

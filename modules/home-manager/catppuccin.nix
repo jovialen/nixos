@@ -14,9 +14,7 @@ in
     flavor = lib.strings.toLower cfg.flavor;
     accent = lib.strings.toLower cfg.accent;
 
-    pointerCursor = {
-      enable = true;
-      accent = "dark";
-    };
+    # Dont really like the look of the Catppuccin cursor
+    pointerCursor.enable = false;
   };
 }
