@@ -24,26 +24,9 @@ in
     inputs.catppuccin.nixosModules.catppuccin
   ];
 
-  config = lib.mkIf cfg.enable {
-    environment.systemPackages = (lib.optional gnomeEnabled
-      (
-        pkgs.catppuccin-sddm.override {
-          flavor = lib.toLower cfg.flavor;
-          font = "Noto Sans";
-          fontSize = "9";
-          loginBackground = false;
-        }
-      )
-    );
-
-    catppuccin = {
-      enable = true;
-      flavor = lib.strings.toLower cfg.flavor;
-      accent = lib.strings.toLower cfg.accent;
-    };
-
-    services.displayManager.sddm = lib.mkIf gnomeEnabled {
-      theme = "catppuccin-${lib.toLower cfg.flavor}";
-    };
+  config.catppuccin = lib.mkIf cfg.enable {
+    enable = true;
+    flavor = lib.strings.toLower cfg.flavor;
+    accent = lib.strings.toLower cfg.accent;
   };
 }

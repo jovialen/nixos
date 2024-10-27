@@ -2,6 +2,7 @@
 
 let
   cfg = config.jovial.gnome;
+  catppuccinEnabled = config.jovial.catppuccin.enable;
 
   basePackages = with pkgs; [
     baobab # Disk analyser
@@ -83,14 +84,10 @@ in
     # Enable XServer for GNOME
     services.xserver = {
       enable = true;
+      displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
 
       excludePackages = with pkgs; [ xterm ];
-    };
-
-    services.displayManager.sddm = {
-      enable = true;
-      package = pkgs.kdePackages.sddm;
     };
 
     # Exclude bloat packages
@@ -122,6 +119,12 @@ in
     ])
     ++ cfg.packages
     ++ (map mkExtension defaultExtensions)
-    ++ (map mkExtension cfg.extensions);
+    ++ (map mkExtension cfg.extensions)
+    ++ (lib.optionals catppuccinEnabled (with pkgs; [
+      # Not actually catppuccin, but goes well with it.
+      whitesur-cursors
+      whitesur-gtk-theme
+      whitesur-icon-theme
+    ]));
   };
 }
