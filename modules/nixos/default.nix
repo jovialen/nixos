@@ -4,6 +4,8 @@
   imports = [
     inputs.home-manager.nixosModules.default
   ] ++ [
+    ./desktops/gnome.nix
+
     ./catppuccin.nix
     ./nerdfonts.nix
     ./nh.nix

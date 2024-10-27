@@ -14,6 +14,7 @@
       fzf
       eza
       tree
+      killall
 
       # Nix
       nixd
@@ -29,7 +30,6 @@
       # System information
       neofetch
       htop
-      btop
 
       # Navigation
       yazi
@@ -47,6 +47,9 @@
     jovial.nerdfonts.fonts = [
       "FiraCode"
     ];
+
+    # Remove nixos manual
+    documentation.nixos.enable = false;
 
     # -----------------------------------------------------
     # |  Nix configuration                                |

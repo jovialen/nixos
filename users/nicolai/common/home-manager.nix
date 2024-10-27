@@ -1,17 +1,24 @@
-{ pkgs, outputs, ... }:
+{ nixConfig, pkgs, outputs, ... }:
 
 {
   # -------------------------------------------------------
   # |  Modules                                            |
   # -------------------------------------------------------
 
+  # Development
   jovial.git.enable = true;
   jovial.git.name = "Nicolai Frigaard";
 
   jovial.vscode.enable = true;
   jovial.vscode.autosave = true;
 
-  jovial.alacritty.enable = true;
+  # Terminal and console
+  jovial.alacritty = {
+    enable = true;
+    opacity = 0.95;
+    blur = true;
+  };
+
   jovial.fish.enable = true;
   jovial.fish.plugins = [
     "plugin-git"
@@ -23,10 +30,13 @@
     "tide"
     "bass"
   ];
+
   jovial.shellAliases = {
     nsh = "nix-shell";
+    nedit = "nix-shell ${nixConfig.jovial.nh.flake}";
     nos = "nh os switch -a";
   };
+
   jovial.tmux.enable = true;
   jovial.tmux.plugins = [
   ];
@@ -34,7 +44,16 @@
   programs.zoxide.enable = true;
   programs.zoxide.options = [ "--cmd cd" ];
 
-  gtk.enable = true;
+  # GNOME
+  jovial.gnome.extensions = [
+    "blur-my-shell"
+    "caffeine"
+    "removable-drive-menu"
+    "battery-health-charging"
+    "appindicator"
+    "vitals"
+    "just-perfection"
+  ];
 
   # -------------------------------------------------------
   # |  Packages                                           |

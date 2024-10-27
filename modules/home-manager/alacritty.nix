@@ -8,14 +8,27 @@ in
 {
   options.jovial.alacritty = {
     enable = lib.mkEnableOption "enable alacritty module";
+    opacity = lib.mkOption {
+      description = "Opacity of the window";
+      default = 1.0;
+    };
+    blur = lib.mkOption {
+      description = "Blur the window";
+      default = false;
+    };
   };
 
   config.programs.alacritty = lib.mkIf cfg.enable {
     enable = true;
 
     settings = {
-      window.resize_increments = true;
-      mouse.hide_when_typing = true;
+      window = {
+        resize_increments = true;
+        opacity = cfg.opacity;
+        blur = cfg.blur;
+      };
+
+      mouse.hide_when_typing = false;
 
       font.normal.family = lib.concatStrings [ preferedFont " Nerd Font" ];
     };

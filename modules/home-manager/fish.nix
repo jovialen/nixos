@@ -21,6 +21,8 @@ in
       any-nix-shell
     ];
 
+    programs.starship.enable = true;
+
     programs.fish = {
       enable = true;
 
@@ -34,8 +36,8 @@ in
         fish_vi_key_bindings
         
         # Configure prompt
-        set fish_greeting
-        tide configure --auto --style=Lean --prompt_colors='True color' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Few icons' --transient=Yes
+        set fish_greeting # Remove greeting
+        # tide configure --auto --style=Lean --prompt_colors='True color' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Few icons' --transient=Yes
       '';
 
       plugins = map mkPlugin cfg.plugins;

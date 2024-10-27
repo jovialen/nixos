@@ -4,6 +4,8 @@
   imports = [
     ./globals.nix
 
+    ./desktops/gnome.nix
+
     ./alacritty.nix
     ./catppuccin.nix
     ./fish.nix
