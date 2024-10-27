@@ -4,6 +4,7 @@ let
   cfg = config.jovial.vscode;
   themeEnabled = nixConfig.jovial.catppuccin.enable;
   themeFlavor = nixConfig.jovial.catppuccin.flavor;
+  preferedFont = nixConfig.jovial.nerdfonts.prefered;
 
   themeExtensions = if themeEnabled then with pkgs.vscode-extensions.catppuccin; [ catppuccin-vsc catppuccin-vsc-icons ] else [ ];
 in
@@ -50,6 +51,9 @@ in
 
       "files.autoSave" = if cfg.autosave then "afterDelay" else "off";
       "files.autoSaveDelay" = cfg.autosavedelay;
+
+      "editor.fontFamily" = "'${preferedFont} Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
+      "editor.fontLigatures" = true;
     };
 
     userSettings."workbench.colorTheme" = lib.mkIf themeEnabled "Catppuccin ${themeFlavor}";

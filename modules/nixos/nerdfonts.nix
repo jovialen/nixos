@@ -1,4 +1,4 @@
-{ config, libs, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.jovial.nerdfonts;
@@ -7,17 +7,16 @@ in
   options.jovial.nerdfonts = {
     prefered = lib.mkOption {
       description = "Prefered nerd font";
-      type = libs.types.str;
-      default = null;
+      default = "JetBrainsMono";
     };
     fonts = lib.mkOption {
       description = "What fonts to include";
-      type = libs.types.listOf libs.types.str;
+      type = lib.types.listOf lib.types.str;
       default = [ ];
     };
   };
 
   config.fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = (libs.optional (cfg.prefered != null) cfg.prefered ++ cfg.fonts); })
+    (nerdfonts.override { fonts = (lib.singleton cfg.prefered ++ cfg.fonts); })
   ];
 }
