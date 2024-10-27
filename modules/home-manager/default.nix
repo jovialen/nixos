@@ -11,6 +11,7 @@
     ./firefox.nix
     ./fish.nix
     ./git.nix
+    ./helix.nix
     ./tmux.nix
     ./vscode.nix
   ];

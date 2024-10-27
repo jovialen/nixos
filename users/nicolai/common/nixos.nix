@@ -15,5 +15,6 @@
     "appindicator"
     "vitals"
     "just-perfection"
+    "dash-to-dock"
   ];
 }

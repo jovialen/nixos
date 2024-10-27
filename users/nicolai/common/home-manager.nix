@@ -35,6 +35,8 @@
   jovial.vscode.enable = true;
   jovial.vscode.autosave = true;
 
+  jovial.helix.enable = true;
+
   # Terminal and console
   jovial.alacritty = {
     enable = true;
@@ -75,6 +77,12 @@
     # Utilities
     bitwarden-cli
     gh
+
+    # Notes
+    obsidian
+
+    # Music
+    spotify
   ];
 
   # -------------------------------------------------------

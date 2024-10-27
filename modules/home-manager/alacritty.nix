@@ -33,7 +33,7 @@ in
       font.normal.family = lib.concatStrings [ preferedFont " Nerd Font" ];
     };
 
-    settings.shell = lib.mkIf tmuxEnabled {
+    settings.terminal.shell = lib.mkIf tmuxEnabled {
       program = "${pkgs.tmux}/bin/tmux";
     };
   };

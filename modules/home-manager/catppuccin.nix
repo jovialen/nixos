@@ -34,7 +34,7 @@ in
     gtk = lib.mkIf gnomeEnabled {
       enable = true;
       theme = {
-        name = "Catppuccin-${cfg.flavor}-Compact-${cfg.accent}-Dark";
+        name = "Catppuccin-${lib.toLower cfg.flavor}-compact-${lib.toLower cfg.accent}-dark";
         package = pkgs.catppuccin-gtk.override {
           accents = [ (lib.toLower cfg.accent) ];
           size = "compact";

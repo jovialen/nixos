@@ -54,6 +54,8 @@ in
 
       "editor.fontFamily" = "'${preferedFont} Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
       "editor.fontLigatures" = true;
+
+      "window.titleBarStyle" = "custom";
     };
 
     userSettings."workbench.colorTheme" = lib.mkIf themeEnabled "Catppuccin ${themeFlavor}";

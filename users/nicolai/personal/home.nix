@@ -23,6 +23,15 @@
   # -------------------------------------------------------
 
   home.packages = with pkgs; [
+    # Games
+    steam
+    openttd
+    # Minecraft. Regular launcher is marked as broken
+    lunar-client
+
+    # IDEs
+    jetbrains.pycharm-community
+    jetbrains.idea-community
   ];
 
   # -------------------------------------------------------
