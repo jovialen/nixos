@@ -5,6 +5,7 @@
     inputs.home-manager.nixosModules.default
   ] ++ [
     ./catppuccin.nix
+    ./nerdfonts.nix
     ./nh.nix
     ./plymouth.nix
   ];

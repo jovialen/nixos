@@ -43,6 +43,11 @@
     jovial.catppuccin.enable = true; # Catppuccin theme
     jovial.plymouth.enable = true; # Silent (and pretty) boot
 
+    # Fonts
+    jovial.nerdfonts.fonts = [
+      "FiraCode"
+    ];
+
     # -----------------------------------------------------
     # |  Nix configuration                                |
     # -----------------------------------------------------
