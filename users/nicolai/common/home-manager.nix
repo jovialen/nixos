@@ -44,17 +44,6 @@
   programs.zoxide.enable = true;
   programs.zoxide.options = [ "--cmd cd" ];
 
-  # GNOME
-  jovial.gnome.extensions = [
-    "blur-my-shell"
-    "caffeine"
-    "removable-drive-menu"
-    "battery-health-charging"
-    "appindicator"
-    "vitals"
-    "just-perfection"
-  ];
-
   # -------------------------------------------------------
   # |  Packages                                           |
   # -------------------------------------------------------

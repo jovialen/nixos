@@ -44,11 +44,17 @@ let
     totem
   ];
 
+  defaultExtensions = [
+    "user-themes"
+  ];
+
   mkOptionalPackage = name: lib.mkOption {
     description = "Enable gnome ${name} packages";
     type = lib.types.bool;
     default = false;
   };
+
+  mkExtension = extensionName: pkgs.gnomeExtensions.${extensionName};
 in
 {
   options.jovial.gnome = {
@@ -66,16 +72,25 @@ in
       description = "Extra packages to add";
       default = [ ];
     };
+    extensions = lib.mkOption {
+      description = "Extensions to enable";
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+    };
   };
 
   config = lib.mkIf cfg.enable {
     # Enable XServer for GNOME
     services.xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
 
       excludePackages = with pkgs; [ xterm ];
+    };
+
+    services.displayManager.sddm = {
+      enable = true;
+      package = pkgs.kdePackages.sddm;
     };
 
     # Exclude bloat packages
@@ -103,7 +118,10 @@ in
       # Gnome settings is not enough!
       gnome-tweaks
       gnome-extension-manager
+      gnome-themes-extra
     ])
-    ++ cfg.packages;
+    ++ cfg.packages
+    ++ (map mkExtension defaultExtensions)
+    ++ (map mkExtension cfg.extensions);
   };
 }
