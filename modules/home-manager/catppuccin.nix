@@ -3,6 +3,7 @@
 let
   # Defer to the system configuration
   cfg = nixConfig.jovial.catppuccin;
+  font = nixConfig.jovial.nerdfonts;
   gnomeEnabled = nixConfig.jovial.gnome.enable;
 in
 {
@@ -18,6 +19,16 @@ in
 
       # Dont really like the look of the Catppuccin cursor
       pointerCursor.enable = false;
+    };
+
+    home.packages = with pkgs; [
+      capitaine-cursors
+    ];
+
+    # I'll use my favorite instead
+    home.pointerCursor = {
+      name = "Capitaine Cursors";
+      package = pkgs.capitaine-cursors;
     };
 
     gtk = lib.mkIf gnomeEnabled {
