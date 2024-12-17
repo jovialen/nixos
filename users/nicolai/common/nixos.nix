@@ -17,4 +17,9 @@
     "just-perfection"
     "dash-to-dock"
   ];
+
+  # SSH
+  programs.ssh = {
+    startAgent = true;
+  };
 }

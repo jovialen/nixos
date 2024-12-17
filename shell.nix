@@ -17,5 +17,10 @@
       vim
       neovim
     ];
+
+    shellHook = ''
+      cd /etc/nixos
+      echo "Ready"
+    '';
   };
 }
