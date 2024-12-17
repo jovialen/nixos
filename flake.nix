@@ -36,6 +36,7 @@
       nixosConfigurations = {
         vm1 = mkSystem "vm1" "vm";
         vm2 = mkSystem "vm2" "vm";
+        laptop = mkSystem "laptop" "laptop";
       };
 
       # ---------------------------------------------------
