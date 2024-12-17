@@ -10,7 +10,7 @@
     description = "Nicolai Study";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
-    hashedPassword = "$y$j9T$c91LFsWm9vPmhQeePZ7jb1$0R/l75X.jRTZ6DcCpDnaW.MI0nKkhgZDj6mMPBWRmTD";
+    hashedPassword = "$6$RUYNH2/.zKvsbMj2$sTGtNYcWRAkb7Pk5fHca3uAe4KOkhxHORcsTbiGmKyVC/W/8WisTZ9E61EwbK93YkcMr1ebAluiXl463zFWqQ.";
   };
 
   home-manager.users.nicolai-ntnu = ./home.nix;
