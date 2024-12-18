@@ -60,6 +60,8 @@
     nsh = "nix-shell";
     nedit = "nix-shell ${nixConfig.jovial.nh.flake}";
     nos = "nh os switch -a";
+    ls = "exa";
+    lsa = "exa -la";
   };
 
   jovial.tmux.enable = true;
