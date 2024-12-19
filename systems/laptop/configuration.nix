@@ -10,6 +10,9 @@
 
   # Enable GNOME
   jovial.gnome.enable = true;
+  jovial.gnome.extensions = [
+    "battery-health-charging"
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Oslo";

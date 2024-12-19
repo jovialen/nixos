@@ -14,7 +14,8 @@ in
     enable = true;
     settings."org/gnome/shell" = {
       disable-user-extensions = false;
-      enabled-extensions = (map mkExtension defaultExtensions) ++ (map mkExtension nixCfg.extensions);
+      enabled-extensions = (map mkExtension defaultExtensions)
+        ++ (map mkExtension nixCfg.extensions);
     };
   };
 }

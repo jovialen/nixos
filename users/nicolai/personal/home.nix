@@ -32,6 +32,9 @@
     # IDEs
     jetbrains.pycharm-community
     jetbrains.idea-community
+
+    # Emulator
+    virtualbox
   ];
 
   # -------------------------------------------------------
