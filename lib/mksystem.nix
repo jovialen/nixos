@@ -28,13 +28,16 @@ in
 
         inputs.home-manager.nixosModules.default
         outputs.nixosModules.default
-        outputs.homeManagerModules.default
       ]
       # Add users
       ++ userConfigurations
       ++ [
         {
-          home-manager.users = homeConfigurations;
+          home-manager = {
+            extraSpecialArgs = {inherit inputs outputs;};
+            backupFileExtension = ".bak";
+            users = homeConfigurations;
+          };
         }
       ];
   }
