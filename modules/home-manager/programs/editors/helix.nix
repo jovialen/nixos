@@ -19,6 +19,11 @@ in {
           auto-format = true;
           formatter.command = "${pkgs.alejandra}/bin/alejandra";
         }
+        {
+          name = "markdown";
+          auto-format = true;
+          formatter.command = "${pkgs.deno}/bin/deno fmt - --ext md";
+        }
       ];
     };
   };
