@@ -22,13 +22,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable nix helper
-  libgaard.nh.enable = true;
-  libgaard.nh.flake = "/etc/nixos";
-
-  # Set system theme
-  libgaard.stylix.enable = true;
-
   # Enable networking
   networking.networkmanager.enable = true;
 
