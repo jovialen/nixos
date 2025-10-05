@@ -35,7 +35,6 @@ in {
         "done"
         "colored-man-pages"
         "bass"
-        "async-prompt"
       ];
     };
 
