@@ -25,6 +25,7 @@
 
   # Services
   libgaard.ssh.enable = true;
+  libgaard.ssh.opasswordEnable = true;
 
   # Packages
   home.packages = with pkgs; [

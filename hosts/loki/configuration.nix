@@ -29,6 +29,9 @@
   libgaard.opassword.enable = true;
   libgaard.opassword.users = ["loki"];
 
+  # Services
+  libgaard.ssh.server.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
