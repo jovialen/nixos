@@ -7,5 +7,6 @@
     ./programs/editors/helix.nix
     ./programs/git.nix
     ./programs/yazi.nix
+    ./services/ssh.nix
   ];
 }

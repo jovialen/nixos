@@ -44,6 +44,11 @@ in {
         sansSerif = config.stylix.fonts.monospace;
         emoji = config.stylix.fonts.monospace;
       };
+
+      targets.chromium.enable = true;
+      targets.grub.enable = true;
+      targets.grub.useImage = true;
+      targets.plymouth.enable = true;
     };
   };
 }

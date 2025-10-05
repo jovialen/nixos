@@ -23,6 +23,9 @@
   # Git
   libgaard.git.enable = true;
 
+  # Services
+  libgaard.ssh.enable = true;
+
   # Packages
   home.packages = with pkgs; [
     cowsay

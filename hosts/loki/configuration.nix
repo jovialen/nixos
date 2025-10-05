@@ -32,6 +32,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable 1Password
+  libgaard.opassword.enable = true;
+  libgaard.opassword.users = ["loki"];
+
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
