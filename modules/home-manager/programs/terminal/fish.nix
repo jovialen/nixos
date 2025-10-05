@@ -42,6 +42,7 @@ in {
       grc
       fzf
       fd
+      python3
     ];
   };
 }
