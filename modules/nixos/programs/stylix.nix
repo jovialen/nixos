@@ -25,8 +25,14 @@ in {
     stylix = {
       enable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.theme}.yaml";
-      # image = "../../../assets/wallpapers/${cfg.wallpaper}";
+      image = ../../../assets/wallpapers/${cfg.wallpaper};
       polarity = "dark";
+
+      cursor = {
+        name = "Capitaine Cursors (Gruvbox)";
+        package = pkgs.capitaine-cursors-themed;
+        size = 10;
+      };
 
       fonts = {
         monospace = {
