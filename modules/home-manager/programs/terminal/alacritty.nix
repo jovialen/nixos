@@ -1,8 +1,11 @@
-{ pkgs, config, lib, ... }:
-let
-  cfg = config.libgaard.alacritty;
-in
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.libgaard.alacritty;
+in {
   options.libgaard.alacritty = {
     enable = lib.mkEnableOption "alacritty";
   };

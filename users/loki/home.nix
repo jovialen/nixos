@@ -14,6 +14,7 @@
   libgaard.alacritty.enable = true;
   libgaard.fish.enable = true;
   libgaard.starship.enable = true;
+  libgaard.tmux.enable = true;
 
   # Git
   libgaard.git.enable = true;
