@@ -27,6 +27,7 @@ in
         hostConfiguration
 
         inputs.home-manager.nixosModules.default
+        inputs.stylix.nixosModules.stylix
         outputs.nixosModules.default
       ]
       # Add users

@@ -26,6 +26,9 @@
   libgaard.nh.enable = true;
   libgaard.nh.flake = "/etc/nixos";
 
+  # Set system theme
+  libgaard.stylix.enable = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
 
