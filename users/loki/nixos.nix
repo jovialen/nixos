@@ -4,8 +4,5 @@
     description = "loki";
     initialPassword = "loki";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      cowsay
-    ];
   };
 }

@@ -1,14 +1,17 @@
 {
   self,
   nixpkgs,
+  home-manager,
   ...
 } @ inputs: hostname: system: {users}: let
   inherit (self) outputs;
 
-  forAllUsers = op: nixpkgs.lib.map op users;
+  mapAllUsers = op: nixpkgs.lib.map op users;
+  forAllUsers = nixpkgs.lib.genAttrs users;
 
   hostConfiguration = ../hosts/${hostname}/configuration.nix;
-  userConfigurations = forAllUsers (user: ../users/${user}/nixos.nix);
+  userConfigurations = mapAllUsers (user: ../users/${user}/nixos.nix);
+  homeConfigurations = forAllUsers (user: ../users/${user}/home.nix);
 in
   nixpkgs.lib.nixosSystem {
     inherit system;
@@ -22,7 +25,14 @@ in
           # Enable flakes for the configuration
           nix.settings.experimental-features = ["nix-command" "flakes"];
         }
+        home-manager.nixosModules.default
         hostConfiguration
       ]
-      ++ userConfigurations;
+      # Add users
+      ++ userConfigurations
+      ++ [
+        {
+          home-manager.users = homeConfigurations;
+        }
+      ];
   }
