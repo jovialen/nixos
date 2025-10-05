@@ -22,5 +22,10 @@ in {
       clean.extraArgs = "--keep-since 4d --keep 3";
       inherit (cfg) flake;
     };
+
+    environment.shellAliases = {
+      nos = "nh os switch";
+      "nos!" = "nixos-rebuild switch";
+    };
   };
 }

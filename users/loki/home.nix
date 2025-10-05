@@ -16,6 +16,9 @@
   libgaard.starship.enable = true;
   libgaard.tmux.enable = true;
 
+  # Editor
+  libgaard.helix.enable = true;
+
   # Git
   libgaard.git.enable = true;
 
@@ -28,7 +31,7 @@
 
   # Environment variables
   home.sessionVariables = {
-    EDITOR = "vim";
+    EDITOR = "hx";
   };
 
   # Let Home Manager install and manage itself.
