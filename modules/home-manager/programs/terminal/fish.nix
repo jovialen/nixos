@@ -6,7 +6,7 @@
 }: let
   cfg = config.libgaard.fish;
 
-  genPlugins = map (plugin: {
+  mkPlugins = map (plugin: {
     name = "${plugin}";
     src = pkgs.fishPlugins.${plugin}.src;
   });
@@ -22,7 +22,7 @@ in {
         set fish_greeting  # Disable greeting
       '';
 
-      plugins = genPlugins [
+      plugins = mkPlugins [
         "z"
         "grc"
         "sponge"

@@ -6,5 +6,6 @@
     ./programs/terminal/tmux.nix
     ./programs/editors/helix.nix
     ./programs/git.nix
+    ./programs/yazi.nix
   ];
 }

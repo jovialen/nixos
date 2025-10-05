@@ -15,6 +15,7 @@
   libgaard.fish.enable = true;
   libgaard.starship.enable = true;
   libgaard.tmux.enable = true;
+  libgaard.yazi.enable = true;
 
   # Editor
   libgaard.helix.enable = true;
