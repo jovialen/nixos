@@ -10,17 +10,22 @@
   home.username = "loki";
   home.homeDirectory = "/home/loki";
 
+  # Terminal
+  libgaard.alacritty.enable = true;
   libgaard.fish.enable = true;
   libgaard.starship.enable = true;
 
+  # Git
   libgaard.git.enable = true;
 
+  # Packages
   home.packages = with pkgs; [
     cowsay
   ];
 
   home.file = {};
 
+  # Environment variables
   home.sessionVariables = {
     EDITOR = "vim";
   };
