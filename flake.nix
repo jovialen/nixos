@@ -30,5 +30,8 @@
     nixosConfigurations.loki = mkSystem "loki" "x86_64-linux" {
       users = ["loki"];
     };
+
+    nixosModules.default = ./modules/nixos;
+    homeManagerModules.default = ./modules/home-manager;
   };
 }

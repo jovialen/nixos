@@ -1,7 +1,6 @@
 {
   self,
   nixpkgs,
-  home-manager,
   ...
 } @ inputs: hostname: system: {users}: let
   inherit (self) outputs;
@@ -25,8 +24,11 @@ in
           # Enable flakes for the configuration
           nix.settings.experimental-features = ["nix-command" "flakes"];
         }
-        home-manager.nixosModules.default
         hostConfiguration
+
+        inputs.home-manager.nixosModules.default
+        outputs.nixosModules.default
+        outputs.homeManagerModules.default
       ]
       # Add users
       ++ userConfigurations
