@@ -11,6 +11,8 @@
   home.homeDirectory = "/home/loki";
 
   libgaard.fish.enable = true;
+  libgaard.starship.enable = true;
+
   libgaard.git.enable = true;
 
   home.packages = with pkgs; [

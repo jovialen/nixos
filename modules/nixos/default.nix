@@ -1,5 +1,5 @@
 {...}: {
   imports = [
-./programs/nh.nix
-];
+    ./programs/nh.nix
+  ];
 }
