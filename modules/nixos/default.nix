@@ -8,6 +8,7 @@
     ./services/networkmanager.nix
     ./features/locale.nix
     ./features/autologin.nix
+    ./features/desktops/gnome.nix
   ];
 
   libgaard = {

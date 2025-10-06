@@ -18,6 +18,9 @@ in {
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
+  # Use gnome
+  libgaard.gnome.enable = true;
+
   # Enable 1Password
   libgaard.opassword = {
     enable = true;
@@ -35,21 +38,9 @@ in {
   # Configure locale
   libgaard.locale.locale = "nb_NO";
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "no";
-    variant = "nodeadkeys";
-  };
-
-  # Configure console keymap
+  # Configure keymap
   console.keyMap = "no";
+  libgaard.gnome.variant = "nodeadkeys";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
