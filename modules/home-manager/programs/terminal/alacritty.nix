@@ -11,6 +11,16 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    programs.alacritty.enable = true;
+    programs.alacritty = {
+      enable = true;
+      settings = lib.mkForce {
+        window = {
+          opacity = 0.98;
+          blur = true;
+        };
+
+        mouse.hide_when_typing = true;
+      };
+    };
   };
 }
