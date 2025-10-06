@@ -8,6 +8,14 @@
 in {
   options.libgaard.ssh.server = {
     enable = lib.mkEnableOption "ssh";
+
+    openFirewall = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      example = false;
+      description = "Open the firewall for SSH";
+    };
+
     ports = lib.mkOption {
       type = lib.types.listOf lib.types.int;
       default = [22];
@@ -20,6 +28,7 @@ in {
     services.openssh = {
       inherit (cfg) ports;
       enable = true;
+      openFirewall = cfg.openFirewall;
 
       settings = {
         PasswordAuthentication = false;
