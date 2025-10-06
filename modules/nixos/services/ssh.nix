@@ -22,6 +22,14 @@ in {
       example = [32152];
       description = "What port to run the SSH server on";
     };
+
+    users = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [];
+      example = ["loki"];
+      description = "Users to allow ssh authentication into";
+    };
+    allowPasswordAuthentication = lib.mkEnableOption "ssh password authentication";
   };
 
   config = lib.mkIf cfg.enable {
@@ -31,10 +39,10 @@ in {
       openFirewall = cfg.openFirewall;
 
       settings = {
-        PasswordAuthentication = false;
+        PasswordAuthentication = cfg.allowPasswordAuthentication;
         KbdInteractiveAuthentication = false;
         PermitRootLogin = "no";
-        AllowUsers = ["myUser"];
+        AllowUsers = cfg.users;
       };
     };
   };
