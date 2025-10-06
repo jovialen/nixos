@@ -5,9 +5,12 @@
   ...
 }: let
   cfg = config.libgaard.locale;
+
+  xkbEnable = config.libgaard.gnome.enable;
 in {
   options.libgaard.locale = {
     enable = lib.mkEnableOption "locale";
+
     locale = lib.mkOption {
       type = lib.types.str;
       default = "en_UK";
@@ -19,6 +22,18 @@ in {
       default = "Europe/Oslo";
       example = "Europe/Berlin";
       description = "System time zone";
+    };
+
+    keyMap = lib.mkOption {
+      type = lib.types.str;
+      default = "en";
+      example = "no";
+      description = "Gnome keymap";
+    };
+    variant = lib.mkOption {
+      type = lib.types.str;
+      default = "";
+      example = "nodeadkeys";
     };
   };
 
@@ -41,5 +56,14 @@ in {
 
     # Set your time zone.
     time.timeZone = cfg.timeZone;
+
+    # Configure key map
+    console.keyMap = cfg.keyMap;
+
+    # Configure keymap in X11
+    services.xserver.xkb = lib.mkIf xkbEnable {
+      layout = cfg.keyMap;
+      variant = cfg.variant;
+    };
   };
 }

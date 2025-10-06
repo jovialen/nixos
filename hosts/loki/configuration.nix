@@ -37,9 +37,10 @@ in {
 
   # Configure locale
   libgaard.locale.locale = "nb_NO";
+  libgaard.locale.keyMap = "no";
+  libgaard.locale.variant = "nodeadkeys";
 
   # Configure keymap
-  console.keyMap = "no";
   libgaard.gnome.variant = "nodeadkeys";
 
   # Enable touchpad support (enabled default in most desktopManager).
