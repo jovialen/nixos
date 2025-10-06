@@ -33,5 +33,6 @@
 
     # Various services
     printing.enable = lib.mkDefault true;
+    gnome.touchpad.enable = lib.mkDefault true;
   };
 }
