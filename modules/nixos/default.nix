@@ -7,6 +7,7 @@
     ./services/ssh.nix
     ./services/networkmanager.nix
     ./features/locale.nix
+    ./features/autologin.nix
   ];
 
   libgaard = {

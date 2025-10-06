@@ -5,7 +5,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  users = ["loki"];
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -17,19 +19,21 @@
   boot.loader.grub.useOSProber = true;
 
   # Enable 1Password
-  libgaard.opassword.enable = true;
-  libgaard.opassword.users = ["loki"];
+  libgaard.opassword = {
+    enable = true;
+    inherit users;
+  };
 
   # Services
   libgaard.ssh.server = {
     enable = true;
     openFirewall = true;
-    users = ["loki"];
     allowPasswordAuthentication = true;
+    inherit users;
   };
 
   # Configure locale
-  libgaard.locale = "no_NB";
+  libgaard.locale.locale = "nb_NO";
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -69,19 +73,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "nixos";
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-
   # Install firefox.
   programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -97,11 +90,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
