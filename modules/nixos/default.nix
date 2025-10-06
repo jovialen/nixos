@@ -6,6 +6,7 @@
     ./services/plymouth.nix
     ./services/ssh.nix
     ./services/networkmanager.nix
+    ./features/locale.nix
   ];
 
   libgaard = {
@@ -19,5 +20,8 @@
     # Networking
     networks.enable = lib.mkDefault true;
     networks.firewall.enable = lib.mkDefault true;
+
+    # Locale
+    locale.enable = lib.mkDefault true;
   };
 }
